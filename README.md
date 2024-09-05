@@ -1,12 +1,9 @@
-# Build and Run a Docker Container for your Machine Learning Model
 
-The idea is to do a quick and easy build of a Docker container with a simple machine learning model and run it. In order to start building a Docker container for a machine learning model, let’s consider three files: 
--	Dockerfile
--	train.py
--	inference.py
+The goal is to quickly and easily build a Docker container to run a machine learning model. We'll use three key files for this setup:
 
-The train.py is  a python script that ingest and normalize EEG data in a csv file (train.csv) and train two models to classify the data (using scikit-learn). The script saves two models: Linear Discriminant Analysis (clf_lda) and Neural Networks multi-layer perceptron (clf_NN). 
+Dockerfile
+train.py
+inference.py
+In the train.py script, EEG data from a CSV file (train.csv) will be ingested and normalized. The script will train two machine learning models using scikit-learn: a Linear Discriminant Analysis (LDA) model (clf_lda) and a Neural Networks Multi-layer Perceptron model (clf_NN). After training, the models will be saved.
 
-The inference.py will be called to perform batch inference by loading the two models that has been previously created. The application will normalize new EEG data coming from a csv file (test.csv), perform inference on the dataset and print the classification accuracy and predictions. 
-
-Read the complete post:  https://xaviervasques.medium.com/build-and-run-a-docker-container-for-your-machine-learning-model-60209c2d7a7f
+The inference.py script will then load these saved models to perform batch inference on new EEG data from a CSV file (test.csv). The script will normalize the test data, make predictions using both models, and output the classification accuracy and the predicted results.
